@@ -14,13 +14,13 @@
         <div class="content container">
        <div class="row">
            <div class="col-md-8">
-               {% for post in publicaciones %}
+               {% for Postear in publicaciones %}
                    <div class="post">
                        <div class="date">
-                           {{ post.fecha_publicacion }}
+                           {{ Postear.fecha_publicacion }}
                        </div>
-                       <h1><a href="">{{ post.titulo}}</a></h1>
-                       <p>{{ post.texto|linebreaks }}</p>
+                       <h1><a href="">{{ Postear.titulo}}</a></h1>
+                       <p>{{ Postear.texto|linebreaks }}</p>
                    </div>
                {% endfor %}
            </div>
