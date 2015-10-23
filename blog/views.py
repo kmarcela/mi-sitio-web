@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Postear
+from .forms import PostForm
 
 def listar_publicaciones(request):
     publicaciones = Postear.objects.filter(fecha_publicacion__lte=timezone.now()).order_by('fecha_publicacion')
@@ -9,3 +10,7 @@ def listar_publicaciones(request):
 def detalle_publicaciones (request, pk):
     publicaciones = get_object_or_404(Postear, pk=pk)
     return render(request, 'blog/detalle_publicaciones.html',{'publicaciones':publicaciones})
+
+def post_new(request):
+        form = PostForm()
+        return render(request, 'blog/post_edit.html', {'form': form})
